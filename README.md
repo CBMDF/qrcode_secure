@@ -4,11 +4,13 @@
 
 Insert a file "conf.js" in the qrcode_secure_backend folder with the following data:
 
+```json
 const salt = "asdfb351fd6g12kfghd#$ASDVdf4fsd"; // Random data 
 const password = "sdfasdf@#%ff2qfgsdf4asdfA";
 const symmetric_passphrase = "sdafdf$%Dsdfrwt24r52ad";
 
 module.exports = { salt, password, symmetric_passphrase };
+```
 
 Insert a file a private.pem file and a public.pem file also in the qrcode_secure_backend
 
