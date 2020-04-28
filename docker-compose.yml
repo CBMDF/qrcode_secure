@@ -6,13 +6,13 @@ services:
             context: ./
         volumes:
             - /app/node_modules
-            - ./:/app
+            - ./qrcode_secure_backend/:/app
         environment: 
             - KEY=VALUE
     client:
         build: 
             dockerfile: Dockerfile.dev
-            context: ../cad
+            context: ./cad
         volumes:
             - /app/node_modules
-            - ../cad:/app
+            - ./qrcode_secure_frontend:/app
