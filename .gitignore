@@ -2,6 +2,7 @@ node_modules
 documentation
 private_key
 public_key
+/qrcode_secure_frontend/public_key.js
 conf.js
 
 *.pem
