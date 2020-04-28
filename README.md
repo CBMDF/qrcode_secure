@@ -18,6 +18,14 @@ openssl genrsa -out private.pem 2048
 openssl rsa -in private.pem -outform PEM -pubout -out public.pem
 ```
 
+Insert a file a public_key.js the qrcode_secure_frontend/src
+```json
+const publicKey = `data from the public.pem`;
+const _publicKey = publicKey;
+export { _publicKey as publicKey };
+
+```
+
 Run in the terminal (Windows ou Linux):
 
 ```console
