@@ -2,7 +2,7 @@
   "name": "gpgcbmdf",
   "version": "0.1.0",
   "description": "gpg backend cbmdf",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js",

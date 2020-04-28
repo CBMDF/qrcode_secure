@@ -5,6 +5,7 @@
   "description": "Leitor de QRCodes do CBMDF para autenticação de documentos.",
   "private": true,
   "scripts": {
+
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",

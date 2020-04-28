@@ -19,6 +19,11 @@ module.exports = { salt, password, symmetric_passphrase };
 
 Insert a file a private.pem file and a public.pem file
 
+```console
+openssl genrsa -out private.pem 2048
+
+openssl rsa -in private.pem -outform PEM -pubout -out public.pem
+```
 
 Run in the terminal (Windows ou Linux):
 

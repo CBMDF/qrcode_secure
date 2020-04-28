@@ -1,18 +1,29 @@
 version: '3'
 services: 
-    server:
+    nginx:
+        depends_on:
+            - api
+            - client
+        restart: always
         build: 
             dockerfile: Dockerfile.dev
-            context: ./
+            context: ./nginx
+        ports:
+            - '3050:80'
+    api:
+        build: 
+            dockerfile: Dockerfile.dev
+            context: ./qrcode_secure_backend
         volumes:
             - /app/node_modules
-            - ./qrcode_secure_backend/:/app
+            - ./qrcode_secure_backend:/app
         environment: 
             - KEY=VALUE
     client:
+        stdin_open: true
         build: 
             dockerfile: Dockerfile.dev
-            context: ./cad
+            context: ./qrcode_secure_frontend
         volumes:
             - /app/node_modules
             - ./qrcode_secure_frontend:/app
