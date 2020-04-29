@@ -6,21 +6,11 @@
 To generate the public and private keys run the following script.
 
 ```console
-
+user@server:~$ cd qrcode_secure
 user@server:~$ cd qrcode_secure_keys
 user@server:~$ npm install
 user@server:~$ node generate-keys.js
 
-```
-
-Insert a file "conf.js" in the qrcode_secure_backend folder with the following data:
-
-```json
-const salt = "asdfb351fd6g12kfghd#$ASDVdf4fsd"; // Random data 
-const password = "sdfasdf@#%ff2qfgsdf4asdfA";
-const symmetric_passphrase = "sdafdf$%Dsdfrwt24r52ad";
-
-module.exports = { salt, password, symmetric_passphrase };
 ```
 
 Run in the terminal (Windows ou Linux):
