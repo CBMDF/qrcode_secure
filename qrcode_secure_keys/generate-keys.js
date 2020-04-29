@@ -28,7 +28,7 @@ fs.writeFileSync("../qrcode_secure_frontend/src/public_key.js",
 
 
 `const publicKey = \`` + publicKey + `\`; 
-const _publicKey = data;
+const _publicKey = publicKey;
 export { _publicKey as publicKey };`
 
 

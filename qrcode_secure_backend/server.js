@@ -7,7 +7,7 @@ const {
   publicDecrypt,
 } = require("crypto");
 const crypto = require("crypto");
-const generator = require("generate-password");
+//const generator = require("generate-password");
 const constants = require("constants");
 var cors = require("cors");
 app.use(express.urlencoded({ extended: false }));
@@ -18,7 +18,7 @@ corsOptions = {
 };
 app.use(cors(corsOptions));
 
-const { password } = require("./conf");
+// const { password } = require("./conf");
 
 app.listen(22633, () => {
   console.log("Server running on port 22633"); // Porta eh CBMDF em keypad https://en.wikipedia.org/wiki/Telephone_keypad#/media/File:Telephone-keypad2.svg
