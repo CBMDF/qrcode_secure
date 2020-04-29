@@ -2,6 +2,17 @@
 
 # Installation
 
+
+To generate the public and private keys run the following script.
+
+```console
+
+user@server:~$ cd qrcode_secure_keys
+user@server:~$ npm install
+user@server:~$ node generate-keys.js
+
+```
+
 Insert a file "conf.js" in the qrcode_secure_backend folder with the following data:
 
 ```json
@@ -10,22 +21,6 @@ const password = "sdfasdf@#%ff2qfgsdf4asdfA";
 const symmetric_passphrase = "sdafdf$%Dsdfrwt24r52ad";
 
 module.exports = { salt, password, symmetric_passphrase };
-```
-
-Insert a file a private.pem file and a public.pem file also in the qrcode_secure_backend
-
-```console
-openssl genrsa -out private.pem 2048
-
-openssl rsa -in private.pem -outform PEM -pubout -out public.pem
-```
-
-Insert a file a public_key.js the qrcode_secure_frontend/src
-```json
-const publicKey = `data from the public.pem`;
-const _publicKey = publicKey;
-export { _publicKey as publicKey };
-
 ```
 
 Run in the terminal (Windows ou Linux):
