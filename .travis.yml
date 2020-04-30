@@ -2,6 +2,7 @@ sudo: required
 services:
     - docker
 before_install:
+    - echo "$docker_password" | docker login -u "$docker_id" --password-stdin
     - docker build -t cbmdf/qrcode_secure_frontend -f ./qrcode_secure_frontend/Dockerfile.dev ./qrcode_secure_frontend
 
 script:
@@ -13,7 +14,7 @@ after_success:
     - docker build -t cbmdf/qrcode_secure_backend ./qrcode_secure_backend
     
     #Login Docker
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    - echo "$docker_password" | docker login -u "$docker_id" --password-stdin
 
     #push images
     - docker push cbmdf/qrcode_secure_frontend
