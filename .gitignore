@@ -4,7 +4,7 @@ private_key
 public_key
 /qrcode_secure_frontend/public_key.js
 conf.js
-
+coverage
 *.pem
 
 .DS_Store

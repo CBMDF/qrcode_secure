@@ -17,7 +17,7 @@
     <br />
 
     <!--<button class="simular-leitura" v-on:click.stop.prevent="simularLeitura()">Simular Leitura</button>-->
-
+    <a href="#" class="share-button" v-on:click.stop.prevent="share({rawContent})"></a>
     <div class="decode-result">
       <component v-bind:is="currentComponent" v-bind="currentProperties"></component>
       {{ result }}
@@ -47,7 +47,8 @@ export default {
       dataArray: null,
       contentHash: null,
       documentTimestamp: null,
-      input: null
+      input: null,
+      rawContent: null
     };
   },
   // Variáveis computadas
@@ -69,6 +70,18 @@ export default {
       //console.log(jsonData);
       this.getDocumentType(jsonData);
     },
+    share: async content => {
+      try {
+        //console.log("teste", JSON.stringify(content.rawContent));
+        await navigator.share({
+          title: "Resultado da Leitura do QRCode",
+          text: JSON.stringify(content.rawContent)
+        });
+        //console.log("Data was shared successfully");
+      } catch (err) {
+        //console.error("Share failed:", err.message);
+      }
+    },
     _: function(word) {
       return word.replace(/['"]+/g, "");
     },
@@ -78,6 +91,7 @@ export default {
       let documentType = dataArray[0];
       let contentHash = jsonData.h;
       let documentTimestamp = jsonData.t;
+      this.rawContent = jsonData.d;
 
       //console.log("documentType", documentType);
       //console.log("contentHash", contentHash);
@@ -196,6 +210,18 @@ export default {
   float: right;
   top: 5vw;
   border-radius: 1vw;
+  position: absolute;
+}
+
+.share-button {
+  background: url("../assets/share.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 8vw;
+  width: 8vw;
+  display: block;
+  float: right;
+  margin-left: auto;
   position: absolute;
 }
 
