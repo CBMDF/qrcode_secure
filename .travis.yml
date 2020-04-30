@@ -1,0 +1,21 @@
+sudo: required
+services:
+    - docker
+before_install:
+    - docker build -t cbmdf/qrcode_secure_frontend -f ./qrcode_secure_frontend
+
+script:
+    - docker run -e CI=true cbmdf/qrcode_secure_frontend npm test -- --coverage
+
+after_success:
+    - docker build -t cbmdf/qrcode_secure_frontend ./qrcode_secure_frontend
+    - docker build -t cbmdf/qrcode_secure_nginx ./nginx
+    - docker build -t cbmdf/qrcode_secure_backend ./qrcode_secure_backend
+    
+    #Login Docker
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+    #push images
+    - docker push cbmdf/qrcode_secure_frontend
+    - docker push cbmdf/qrcode_secure_nginx
+    - docker push cbmdf/qrcode_secure_backend
