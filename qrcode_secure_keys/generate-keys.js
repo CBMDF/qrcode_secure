@@ -22,9 +22,9 @@ const { publicKey, privateKey } = generateKeyPairSync("rsa", {
   },
 });
 
-fs.writeFileSync("../qrcode_secure_backend/private.pem", privateKey);
-fs.writeFileSync("../qrcode_secure_backend/public.pem", publicKey);
-fs.writeFileSync("../qrcode_secure_frontend/src/public_key.js", 
+fs.writeFileSync("../qrcode_secure_backend/db/model/private.pem", privateKey);
+fs.writeFileSync("../qrcode_secure_backend/db/model/public.pem", publicKey);
+fs.writeFileSync("../qrcode_secure_frontend_react/src/public_key.js", 
 
 
 `const publicKey = \`` + publicKey + `\`; 

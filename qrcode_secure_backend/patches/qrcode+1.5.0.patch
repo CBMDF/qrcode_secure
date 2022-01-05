@@ -1,0 +1,14 @@
+diff --git a/node_modules/qrcode/lib/core/byte-data.js b/node_modules/qrcode/lib/core/byte-data.js
+index 778181c..67832bc 100644
+--- a/node_modules/qrcode/lib/core/byte-data.js
++++ b/node_modules/qrcode/lib/core/byte-data.js
+@@ -3,7 +3,8 @@ const Mode = require('./mode')
+ 
+ function ByteData (data) {
+   this.mode = Mode.BYTE
+-  this.data = new Uint8Array(encodeUtf8(data))
++  if ('string' === typeof data) data = encodeUtf8(data)
++  this.data = new Uint8Array(data)
+ }
+ 
+ ByteData.getBitsLength = function getBitsLength (length) {

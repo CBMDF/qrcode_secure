@@ -12,7 +12,7 @@ services:
             - '3050:80'
     api:
         build: 
-            dockerfile: Dockerfile.dev
+            dockerfile: Dockerfile.devback
             context: ./qrcode_secure_backend
         volumes:
             - /app/node_modules
@@ -23,7 +23,7 @@ services:
         stdin_open: true
         build: 
             dockerfile: Dockerfile.dev
-            context: ./qrcode_secure_frontend
+            context: ./qrcode_secure_frontend_react
         volumes:
             - /app/node_modules
-            - ./qrcode_secure_frontend:/app
+            - ./qrcode_secure_frontend_react:/app
