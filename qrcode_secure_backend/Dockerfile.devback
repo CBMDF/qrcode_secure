@@ -1,7 +1,10 @@
 FROM node:16.8.0
 RUN apt install g++ make python
 WORKDIR '/app'
-COPY ./package.json /app
+COPY ./package.json  /app
+CMD ["mkdir", "patches"]
+COPY ./patches/*  /app/patches/
 RUN npm install
+RUN mkdir -p node_modules/.cache && chmod -R 777 node_modules/.cache
 COPY . .
 CMD ["npm", "run", "dev"]
